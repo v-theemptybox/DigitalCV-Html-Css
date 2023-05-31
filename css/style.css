@@ -48,19 +48,18 @@ section > .container {
 /* Navbar */
 #nav-bar > .container {
   display: flex;
-  width: 900px;
   justify-content: center;
 }
 #nav-bar > .container > a {
   border-left: 1px solid silver;
-  flex-grow: 1;
+  flex-basis: 128px;
   padding: 8px;
   display: inline-block;
   text-decoration: none;
 }
 
 #nav-bar > .container > a:nth-child(3) {
-  flex-grow: 3;
+  flex-basis: 384px;
 }
 /* #about {
   display: grid;
@@ -107,7 +106,7 @@ ul {
 /* Job Info */
 #job-info > .container {
   display: grid;
-  grid-template-columns: 20% 20% 20%;
+  grid-template-columns: repeat(3, 24%);
   grid-template-rows: auto auto;
   gap: 16px;
 
@@ -167,13 +166,92 @@ ul {
   margin-right: 10px;
 }
 
-/* Skills */
+/* Certificate */
+#certificate {
+  margin-top: 20px;
+}
+/* #certificate > .container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 240px 240px;
+} */
+.cert-grid {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 128px 128px;
+  justify-content: center;
+}
+.cert-grid > div {
+  border: 1px solid black;
+  display: flex;
+}
+.flex-end-position {
+  justify-content: space-between;
+}
+
+/* Project */
+#project {
+  margin-top: 20px;
+}
+#project > .container {
+  display: grid;
+  grid-template-columns: repeat(3, 25%);
+  grid-template-rows: auto auto;
+  justify-content: center;
+  gap: 16px;
+}
+.project-border {
+  border: 2px solid #f3f3f3;
+}
+
+#project h1 {
+  grid-column: 1/-1;
+}
+#project h3 {
+  text-transform: uppercase;
+}
+
+.project-timeline {
+  display: grid;
+  grid-template-columns: repeat(3, 24%);
+  border-top: 2px solid #f3f3f3;
+  border-bottom: 2px solid #f3f3f3;
+}
+.project-timeline > span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#project span {
+  border-bottom: 2px solid #f3f3f3;
+  padding: 12px;
+}
+#project span:nth-last-child(2),
+#project span:last-child {
+  border-bottom: none;
+}
+.project-timeline > span:first-child {
+  background-color: #017cff;
+  color: white;
+  margin: 12px;
+  border-radius: 8px;
+  padding: 0 !important;
+}
+.project-detail {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  grid-template-rows: repeat(3, auto);
+}
 
 /* Footer */
 .ul-footer {
   display: grid;
-  grid-template-columns: 10% 10% 10%;
+  grid-template-columns: repeat(3, 10%);
   justify-content: center;
+  align-items: center;
+  height: 75px;
+  margin-top: 20px;
+  background-color: #f0f0f0;
 }
 .ul-footer > li {
   list-style: none;
