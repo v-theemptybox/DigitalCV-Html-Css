@@ -5,18 +5,12 @@
 body {
   font-family: "Lato", sans-serif;
   line-height: 1.5;
-}
-
-.bg-grey {
-  background: #f7f7f7;
+  color: #393533;
+  font-size: 14px;
 }
 
 section > .container {
-  /* width: 1170px;
-  margin: auto;
-  display: block; */
-
-  padding: 0 50px;
+  margin: 0 50px;
 }
 
 #nav-bar {
@@ -56,17 +50,30 @@ section > .container {
   padding: 8px;
   display: inline-block;
   text-decoration: none;
+  color: #393533;
+  text-transform: uppercase;
 }
-
+#nav-bar i {
+  color: #199cdb;
+}
 #nav-bar > .container > a:nth-child(3) {
   flex-basis: 384px;
+  position: relative;
 }
-/* #about {
-  display: grid;
-  grid-template-columns: 300px 300px;
-} */
+#nav-bar > .container > a:nth-child(3) > img {
+  position: absolute;
+  object-fit: cover;
+  object-position: 90% 30%;
+  top: -80%;
+  left: 37%;
+  border: 1px solid #f5f5f5;
+  border-radius: 50%;
+  padding: 8px;
+  background-color: white;
+  box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.2);
+}
 
-/* Personal Info */
+/* About */
 #about > .container {
   display: grid;
   grid-template-columns: 50% 50%;
@@ -74,6 +81,10 @@ section > .container {
 #about > .container > div {
   padding: 20px;
   background-color: #f5f5f5;
+}
+#about p,
+#about span {
+  color: gray;
 }
 #target > h1,
 #personal-info > h1 {
@@ -101,6 +112,7 @@ ul {
 }
 #personal-info ul > li:last-child {
   margin-top: 24px;
+  color: #199cdb;
 }
 
 /* Job Info */
@@ -109,59 +121,108 @@ ul {
   grid-template-columns: repeat(3, 24%);
   grid-template-rows: auto auto;
   gap: 16px;
-
   justify-content: center;
 }
 
 #job-info > .container > div {
   border: 1px solid silver;
   padding: 24px;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 75% 25%;
+  grid-template-rows: 36px auto;
+  row-gap: 36px;
 }
 
 #job-info > .container > div > h1 {
-  /* display: inline-block; */
-  /* margin-right: 24%; */
-  flex: 75%;
+  flex: 70%;
+  /* height: 36px; */
 }
 #job-info > .container > div > i {
   flex: 25%;
   align-self: center;
+  font-size: 32px;
+  color: gray;
+}
+.job-info-desc {
+  grid-column: 1/-1;
+}
+.job-info-desc h3 {
+  margin-left: 16px;
+  position: relative;
+}
+.job-info-desc h3::before {
+  content: "";
+  background-color: #199cdb;
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  border-radius: 50%;
+  left: -16px;
+  top: 10px;
+}
+.job-info-desc p {
+  color: gray;
+}
+.job-info-desc p:nth-child(2),
+.job-info-desc p:nth-child(5) {
+  font-style: italic;
+  margin: 12px 0;
+}
+.job-info-desc span {
+  background-color: #199cdb;
+  color: white;
+  padding: 0 12px;
+  border-radius: 8px;
 }
 
 #job-info > .container > div > p > span {
   background-color: #017cff;
 }
 
-/* Hobbies */
+/* Job Info -> Hobbies */
 .interest {
+  grid-column: 1/-1;
   display: grid;
   width: 100%;
   grid-template-columns: 25% 25% 25% 25%;
 }
-.interest > i {
+.interest > div {
+  display: grid;
+  grid-template-rows: 50px 50px;
+  justify-items: center;
+  color: gray;
+}
+
+.interest > div > i {
   border: 1px solid #017cff;
   color: #017cff;
-  width: 80%;
-  height: 47px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Languages */
-.grid-col-3 {
+/* Job Info -> Languages, Skill */
+.grid-col-custom {
   display: grid;
-  width: 100%;
+  grid-auto-rows: 36px;
+}
+.mastery-grid {
+  display: grid;
   grid-template-columns: 25% 25% 25%;
 }
-.grid-col-3 > span {
+.mastery-grid > span {
   border-top: 2px solid #017cff;
   margin-right: 10px;
 }
-.grid-col-3 > span:last-child {
+.intermediate > span:last-child {
+  border-top: 2px solid silver;
+  margin-right: 10px;
+}
+.fundamental > span:nth-child(2),
+.fundamental > span:last-child {
   border-top: 2px solid silver;
   margin-right: 10px;
 }
@@ -170,23 +231,48 @@ ul {
 #certificate {
   margin-top: 20px;
 }
-/* #certificate > .container {
+#certificate > .container {
   display: grid;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: 240px 240px;
-} */
-.cert-grid {
-  display: grid;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: 128px 128px;
+  grid-template-columns: 36.5% 36.5%;
+  grid-template-rows: auto auto;
   justify-content: center;
+  gap: 16px;
+  background-color: #f5f5f5;
 }
+
+#certificate h1 {
+  grid-column: 1/-1;
+}
+
 .cert-grid > div {
   border: 1px solid black;
   display: flex;
 }
-.flex-end-position {
-  justify-content: space-between;
+
+.certificate-desc {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  position: relative;
+}
+.certificate-desc:nth-child(3)::before {
+  content: "";
+  background-color: #d6c08d;
+  width: 1px;
+  height: 158px;
+  position: absolute;
+  left: -10px;
+}
+.certificate-desc > img {
+  padding: 4px;
+  border: 1px solid #f5f5f5;
+}
+.certificate-desc p {
+  color: gray;
+}
+.row-border {
+  border-top: 1px solid #d6c08d;
+  grid-column: 1 / -1;
+  margin: 12px 0;
 }
 
 /* Project */
@@ -195,7 +281,7 @@ ul {
 }
 #project > .container {
   display: grid;
-  grid-template-columns: repeat(3, 25%);
+  grid-template-columns: repeat(3, 24%);
   grid-template-rows: auto auto;
   justify-content: center;
   gap: 16px;
@@ -209,11 +295,12 @@ ul {
 }
 #project h3 {
   text-transform: uppercase;
+  padding: 12px;
 }
 
 .project-timeline {
   display: grid;
-  grid-template-columns: repeat(3, 24%);
+  grid-template-columns: repeat(3, 28%);
   border-top: 2px solid #f3f3f3;
   border-bottom: 2px solid #f3f3f3;
 }
@@ -225,6 +312,7 @@ ul {
 #project span {
   border-bottom: 2px solid #f3f3f3;
   padding: 12px;
+  color: gray;
 }
 #project span:nth-last-child(2),
 #project span:last-child {
@@ -232,9 +320,9 @@ ul {
 }
 .project-timeline > span:first-child {
   background-color: #017cff;
-  color: white;
+  color: white !important;
   margin: 12px;
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 0 !important;
 }
 .project-detail {
@@ -255,4 +343,12 @@ ul {
 }
 .ul-footer > li {
   list-style: none;
+  color: gray;
+  display: grid;
+  grid-template-columns: repeat(2, 25%);
+  align-items: center;
+}
+.ul-footer > li > i {
+  color: #34a7de;
+  font-size: 200%;
 }
